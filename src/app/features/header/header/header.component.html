@@ -1,0 +1,19 @@
+<header class="bg-blue-500 text-white p-4">
+  <div class="container mx-auto flex items-center">
+    <h1 [routerLink]="['/']" class="text-xl font-bold mr-auto cursor-pointer">My App</h1>
+    <nav class="flex items-center justify-center flex-grow">
+      <ul class="flex space-x-4">
+        <li [routerLink]="['/']"><a class="hover:underline cursor-pointer">Anasayfa</a></li>
+        <li [routerLink]="['/task-list']"><a class="hover:underline cursor-pointer">Profil</a></li>
+      </ul>
+    </nav>
+    <div class="flex space-x-4" >
+      <button *ngIf="!isLoggedIn()" [routerLink]="['/login']" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-white hover:text-green-500">Login</button>
+      <button *ngIf="!isLoggedIn()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-white hover:text-blue-600">Register</button>
+    </div>
+    <div class="flex space-x-4">
+      <p class="px-4 py-2" *ngIf="isLoggedIn()" >{{userData?.email}}</p>
+      <button *ngIf="isLoggedIn()" (click)="logout()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-white hover:text-green-500">Logout</button>
+    </div>
+  </div>
+</header>
