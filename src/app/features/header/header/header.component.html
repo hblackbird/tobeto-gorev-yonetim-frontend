@@ -4,15 +4,16 @@
     <nav class="flex items-center justify-center flex-grow">
       <ul class="flex space-x-4">
         <li [routerLink]="['/']"><a class="hover:underline cursor-pointer">Anasayfa</a></li>
-        <li [routerLink]="['/task-list']"><a class="hover:underline cursor-pointer">Profil</a></li>
+        <li [routerLink]="['/task-list']"><a class="hover:underline cursor-pointer">Task List</a></li>
+        <li [routerLink]="['/add-task']"><a class="hover:underline cursor-pointer">Add Task</a></li>
       </ul>
     </nav>
     <div class="flex space-x-4" >
       <button *ngIf="!isLoggedIn()" [routerLink]="['/login']" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-white hover:text-green-500">Login</button>
-      <button *ngIf="!isLoggedIn()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-white hover:text-blue-600">Register</button>
+      <button *ngIf="!isLoggedIn()" [routerLink]="['/register']" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-white hover:text-blue-600">Register</button>
     </div>
     <div class="flex space-x-4">
-      <p class="px-4 py-2" *ngIf="isLoggedIn()" >{{userData?.email}}</p>
+      <p class="px-4 py-2 cursor-pointer" [routerLink]="['/task-list']" *ngIf="isLoggedIn()" >{{userData?.email}}</p>
       <button *ngIf="isLoggedIn()" (click)="logout()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-white hover:text-green-500">Logout</button>
     </div>
   </div>

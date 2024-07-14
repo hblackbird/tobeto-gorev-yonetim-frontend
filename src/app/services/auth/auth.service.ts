@@ -55,4 +55,8 @@ export class AuthService {
   getUserFromId(userId:any){
     return this.http.get(this.apiUrl+`/api/Users/${userId}`)
   }
+
+  register(user: { mail: string, password: string }): Observable<any>{
+    return this.http.post<any>(this.apiUrl+ `/api/Auth/Register`, user)
+  }
 }
